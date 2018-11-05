@@ -36,6 +36,17 @@ def render_theme(body, request):
     )
 
 
+class AccountsPage(webapp2.RequestHandler):
+    """AccountsPage class."""
+
+    def get(self):
+        """Return the accounts page."""
+        template = jinja.get_template('accounts.html')
+        body = template.render()
+        output = render_theme(body, self.request)
+        self.response.write(output)
+
+
 class AdminPage(webapp2.RequestHandler):
     """AdminPage class."""
 
@@ -60,5 +71,6 @@ class MainPage(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
+    ('/accounts', AccountsPage),
     ('/admin', AdminPage),
 ], debug=True)
