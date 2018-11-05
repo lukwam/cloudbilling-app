@@ -32,6 +32,7 @@ def render_theme(body, request):
         body=body,
         is_admin=users.is_current_user_admin(),
         is_dev=is_dev(),
+        logout_url=users.create_logout_url('/'),
         request=request,
     )
 
