@@ -1,2 +1,2 @@
-# gcp-billing-app
-GCP Billing App - App Engine
+# cloudbilling-app
+Cloud Billing App - App Engine
