@@ -2,3 +2,17 @@
 
 Welcome to the accounts page.
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Display Name</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for a in accounts %}
+        <tr>
+            <td>{{ a.displayName }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

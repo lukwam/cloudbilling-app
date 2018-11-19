@@ -1,4 +1,4 @@
-# Copyright 2016 Google Inc. All rights reserved.
+# Copyright 2018 Google Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,15 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import webtest
-
 import main
 
 
-def test_get():
-    app = webtest.TestApp(main.app)
+def test_index():
+    main.app.testing = True
+    client = main.app.test_client()
 
-    response = app.get('/')
-
-    assert response.status_int == 200
-    assert response.body == 'Hello, World!'
+    r = client.get('/')
+    assert r.status_code == 200
+    assert 'Hello World' in r.data.decode('utf-8')

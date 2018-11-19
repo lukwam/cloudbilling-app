@@ -1,32 +1,11 @@
-runtime: python27
-api_version: 1
-threadsafe: true
+runtime: python37
 
-# [START handlers]
 handlers:
-- url: /favicon\.ico
-  static_files: favicon.ico
-  upload: favicon\.ico
+# Static files
+- url: /static
+  static_dir: static
 
-- url: /styles\.css
-  static_files: styles.css
-  upload: styles\.css
-
-- url: /admin
-  script: main.app
-  login: admin
-
+# Main handler
 - url: /.*
-  script: main.app
-  login: required
-# [END handlers]
-
-# [START libraries]
-libraries:
-- name: webapp2
-  version: latest
-- name: jinja2
-  version: latest
-- name: ssl
-  version: latest
-# [END libraries]
+  script: auto
+  secure: always
